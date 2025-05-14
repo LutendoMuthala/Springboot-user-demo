@@ -7,15 +7,15 @@ import java.util.Random;
 
 @Service
 public class UserServiceImpl implements UserService {
-    
+
     private final FakeRepoInterface fakeRepo;
     private final Random random = new Random();
-    
+
     @Autowired
     public UserServiceImpl(FakeRepoInterface fakeRepo) {
         this.fakeRepo = fakeRepo;
     }
-    
+
     @Override
     public String addUser(String name, String surname) {
         // Generate a random ID for demonstration purposes
@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService {
         System.out.println(result + " added");
         return result + " added";
     }
-    
+
     @Override
     public String removeUser(long id) {
         String result = fakeRepo.deleteUser(id);
@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
         System.out.println(result);
         return result;
     }
-    
+
     @Override
     public String getUser(long id) {
         String result = fakeRepo.findUserById(id);
